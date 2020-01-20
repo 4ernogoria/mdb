@@ -8,7 +8,7 @@ RUN yum -y install --setopt=tsflags=nodocs epel-release && \
     yum -y erase vim-minimal && \
     yum -y update && yum clean all && \
     mkdir -p /var/lib/mariadbtmp && \
-    mv /var/lib/mariadb/* /var/lib/mariadbtmp/
+    mv /var/lib/mariadb/* /var/lib/mariadbtmp/ && \
     mv /var/lib/mysql/* /var/lib/mariadbtmp/
 
 # Fix permissions to allow for running on openshift
