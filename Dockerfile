@@ -6,7 +6,9 @@ RUN yum -y install --setopt=tsflags=nodocs epel-release && \
     useradd -u 9869 mysql && \
     yum -y install --setopt=tsflags=nodocs MariaDB-server pwgen psmisc hostname && \ 
     yum -y erase vim-minimal && \
-    yum -y update && yum clean all
+    yum -y update && yum clean all && \
+    mkdir -p /var/lib/mariadbtmp && \
+    mv /var/lib/mariadb/* /var/lib/mariadbtmp/
 
 # Fix permissions to allow for running on openshift
 COPY *.sh /
